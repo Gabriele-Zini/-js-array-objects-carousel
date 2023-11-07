@@ -19,7 +19,9 @@
 
 body {
     padding: 5rem;
-    background-color: beige;
+    background-image: url(../img/03.webp);
+    background-attachment: fixed;
+    background-position:center;
 }
 
 .items {
@@ -141,6 +143,17 @@ body {
     text-align: end;
   }
 
+/* buttons */
+button {
+    padding: .4rem 1rem;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(107, 107, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
 
 .buttons {
     margin-top: 50px;
@@ -151,5 +164,5 @@ body {
   }
 
   #invert {
-
+    margin: 0 20px;
   }
