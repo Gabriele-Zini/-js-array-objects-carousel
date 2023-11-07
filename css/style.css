@@ -29,7 +29,7 @@ body {
     width: 900px;
     height: 500px;
     margin: 0 auto;
-    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.322);
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.649);
     display: flex;
 }
 
