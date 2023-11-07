@@ -47,7 +47,7 @@ function createDivImg() {
 // funzione per creare la struttura html dell'immagine e i titles
 function drawImage(curImage) {
   return `
-            <img src="img/${curImage.image}"/>
+            <img src="${curImage.image}"/>
             <div class="absolute">
                 <h3>${curImage.title}</h3>
                 <p>${curImage.text}</p>
@@ -106,7 +106,7 @@ function sliderIntervalInverted() {
 function createPreview() {
   let previewDiv = "";
   images.forEach((image) => {
-    previewDiv += `<div class="thumb"><img src="img/${image.image}" alt=""></div>`;
+    previewDiv += `<div class="thumb"><img src="${image.image}" alt=""></div>`;
   });
   document.querySelector(".thumbs").innerHTML = previewDiv;
   thumbsContainer.remove();
