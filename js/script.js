@@ -58,21 +58,27 @@ function drawImage(curImage) {
 // funzione del prevBtn
 function prevHandle() {
   imageItem[currentIndex].classList.remove("active");
+  previewItems[currentIndex].classList.remove("active");
   currentIndex--;
   if (currentIndex < 0) {
     currentIndex = imageItem.length - 1;
   }
+  
   imageItem[currentIndex].classList.add("active");
+  previewItems[currentIndex].classList.add("active");
 }
 
 // funzione del nextBtn
 function nextHandle() {
   imageItem[currentIndex].classList.remove("active");
+  previewItems[currentIndex].classList.remove("active");
   currentIndex++;
   if (currentIndex >= imageItem.length) {
     currentIndex = 0;
   }
   imageItem[currentIndex].classList.add("active");
+  previewItems[currentIndex].classList.add("active");
+ 
 }
 
 // funzione dello slider automatico
