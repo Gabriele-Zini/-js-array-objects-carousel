@@ -159,6 +159,8 @@ function handleInvert() {
 // funzione per gestire lo stop button dell'autoplay
 function handleStopBtn() {
   clearInterval(interval);
+  startClicked = false;
+  invertClicked = false; 
 }
 
 // funzione che attiva thumb e item corrent
