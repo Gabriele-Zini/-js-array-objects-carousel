@@ -86,6 +86,7 @@ function sliderInterval() {
   }
 }
 
+// funzione dello slider automatico invertito
 function sliderIntervalInverted() {
   if (autoplay && invertClicked) {
     showOff();
