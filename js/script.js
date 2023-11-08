@@ -1,6 +1,6 @@
 // DATA
 
-// querySelector
+// querySelector and get elementById
 const container = document.querySelector(".container");
 const items = document.querySelector(".items");
 const prevBtn = document.querySelector(".prev");
