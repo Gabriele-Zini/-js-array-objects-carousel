@@ -23,7 +23,6 @@ createPreview();
 let currentIndex = 0;
 
 const imageItem = document.querySelectorAll(".item");
-imageItem[currentIndex].classList.add("active");
 
 // addEventListener
 prevBtn.addEventListener("click", prevHandle);
@@ -57,54 +56,44 @@ function drawImage(curImage) {
 
 // funzione del prevBtn
 function prevHandle() {
-  imageItem[currentIndex].classList.remove("active");
-  previewItems[currentIndex].classList.remove("active");
+  showOff();
   currentIndex--;
   if (currentIndex < 0) {
     currentIndex = imageItem.length - 1;
   }
-  
-  imageItem[currentIndex].classList.add("active");
-  previewItems[currentIndex].classList.add("active");
+  showUp();
 }
 
 // funzione del nextBtn
 function nextHandle() {
-  imageItem[currentIndex].classList.remove("active");
-  previewItems[currentIndex].classList.remove("active");
+  showOff();
   currentIndex++;
   if (currentIndex >= imageItem.length) {
     currentIndex = 0;
   }
-  imageItem[currentIndex].classList.add("active");
-  previewItems[currentIndex].classList.add("active");
- 
+  showUp();
 }
 
 // funzione dello slider automatico
 function sliderInterval() {
   if (autoplay & startClicked) {
-    imageItem[currentIndex].classList.remove("active");
-    previewItems[currentIndex].classList.remove("active");
+    showOff();
     currentIndex++;
     if (currentIndex >= imageItem.length) {
       currentIndex = 0;
     }
-    imageItem[currentIndex].classList.add("active");
-    previewItems[currentIndex].classList.add("active");
+    showUp();
   }
 }
 
 function sliderIntervalInverted() {
   if (autoplay && invertClicked) {
-    imageItem[currentIndex].classList.remove("active");
-    previewItems[currentIndex].classList.remove("active");
+    showOff();
     currentIndex--;
     if (currentIndex < 0) {
       currentIndex = imageItem.length - 1;
     }
-    imageItem[currentIndex].classList.add("active");
-    previewItems[currentIndex].classList.add("active");
+    showUp();
   }
 }
 
@@ -121,20 +110,18 @@ function createPreview() {
 }
 
 const previewItems = document.querySelectorAll(".thumb");
-previewItems[currentIndex].classList.add("active");
+showUp();
 attachClickHandlers(previewItems);
 
 // funzione per gestire il click sulle preview
 function attachClickHandlers(previewItems) {
   for (let i = 0; i < previewItems.length; i++) {
     const preview = previewItems[i];
-
     preview.addEventListener("click", function () {
       previewItems.forEach((item) => {
         item.classList.remove("active");
       });
       preview.classList.add("active");
-
       currentIndex = i;
       updateMainImage();
     });
@@ -169,10 +156,19 @@ function handleInvert() {
   }
 }
 
-
 // funzione per gestire lo stop button dell'autoplay
 function handleStopBtn() {
-  startClicked = false;
-  invertClicked = false;
-  autoplay = false;
+  clearInterval(interval);
+}
+
+// funzione che attiva thumb e item corrent
+function showUp() {
+  imageItem[currentIndex].classList.add("active");
+  previewItems[currentIndex].classList.add("active");
+}
+
+// funzione che nasconde thumb e item corrente
+function showOff() {
+  imageItem[currentIndex].classList.remove("active");
+  previewItems[currentIndex].classList.remove("active");
 }
