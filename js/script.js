@@ -18,11 +18,10 @@ let interval;
 
 createDivImg();
 createPreview();
+const imageItem = document.querySelectorAll(".item");
 
 // image index
 let currentIndex = 0;
-
-const imageItem = document.querySelectorAll(".item");
 
 // addEventListener
 prevBtn.addEventListener("click", prevHandle);
